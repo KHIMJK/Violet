@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Violet Beauty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product.css">
+  <style>
+    /* HERO */
+    .about-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #0f0520 0%, #1e0a35 40%, #2d1548 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 80px 80px;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 65%);
+      top: -200px; right: -150px;
+      border-radius: 50%;
+    }
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(249,168,212,0.15) 0%, transparent 65%);
+      bottom: -150px; left: -100px;
+      border-radius: 50%;
+    }
+    .about-hero-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+    .about-hero-left .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(167,139,250,0.15);
+      border: 1px solid rgba(167,139,250,0.3);
+      color: #c4b5fd;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      padding: 7px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .about-hero-left h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 5.5vw, 76px);
+      font-weight: 300;
+      color: white;
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    .about-hero-left h1 em { font-style: italic; color: #c4b5fd; }
+    .about-hero-left p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 50px;
+    }
+    .about-hero-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 28px 24px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .stat-card:hover { background: rgba(255,255,255,0.11); transform: translateY(-4px); }
+    .stat-card:first-child { grid-column: 1 / -1; background: rgba(124,58,237,0.2); border-color: rgba(167,139,250,0.3); }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 600;
+      color: white;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-card:first-child .stat-number { font-size: 64px; color: #c4b5fd; }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 500; }
+
+    /* STORY SECTION */
+    .story-section {
+      padding: 120px 80px;
+      background: white;
+    }
+    .story-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+    .story-visual {
+      position: relative;
+    }
+    .story-main-card {
+      background: linear-gradient(135deg, #f5f3ff, #fce7f3, #fff1f2);
+      border-radius: 32px;
+      height: 460px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-main-card::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+      top: -50px; right: -50px;
+    }
+    .story-float-1 {
+      position: absolute;
+      top: -20px; right: -20px;
+      background: white;
+      border-radius: 18px;
+      padding: 16px 20px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      border: 1px solid rgba(124,58,237,0.1);
+    }
+    .story-float-1 .num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: #7c3aed; }
+    .story-float-1 .lbl { font-size: 11px; color: #9ca3af; font-weight: 500; }
+    .story-float-2 {
+      position: absolute;
+      bottom: -20px; left: -20px;
+      background: #7c3aed;
+      border-radius: 18px;
+      padding: 16px 20px;
+      box-shadow: 0 12px 40px rgba(124,58,237,0.3);
+    }
+    .story-float-2 .icon { font-size: 28px; margin-bottom: 4px; }
+    .story-float-2 .lbl { font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 500; }
+    .story-text .section-tag { margin-bottom: 16px; }
+    .story-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300;
+      color: #18181b;
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+    .story-text h2 em { font-style: italic; color: #7c3aed; }
+    .story-text p {
+      font-size: 16px;
+      color: #4b5563;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .story-text p:last-of-type { margin-bottom: 36px; }
+    .story-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: #fafafa;
+      border-radius: 14px;
+      border: 1px solid #f0f0f0;
+    }
+    .pillar-icon { font-size: 22px; flex-shrink: 0; }
+    .pillar-text .pillar-title { font-size: 13px; font-weight: 700; color: #18181b; margin-bottom: 3px; }
+    .pillar-text .pillar-desc { font-size: 12px; color: #9ca3af; line-height: 1.5; }
+
+    /* VALUES */
+    .values-section {
+      padding: 100px 80px;
+      background: linear-gradient(135deg, #1a0533 0%, #2d1548 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .values-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a78bfa' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .values-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .values-header { text-align: center; margin-bottom: 64px; }
+    .values-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 4.5vw, 56px);
+      font-weight: 300;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .values-header p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 500px; margin: 0 auto; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .value-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 36px 32px;
+      transition: all 0.35s;
+      position: relative;
+      overflow: hidden;
+    }
+    .value-card::before {
+      content: '';
+      position: absolute;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(167,139,250,0.15) 0%, transparent 70%);
+      top: -30px; right: -30px;
+      border-radius: 50%;
+      transition: all 0.35s;
+    }
+    .value-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-6px); border-color: rgba(167,139,250,0.3); }
+    .value-card:hover::before { width: 200px; height: 200px; }
+    .value-icon { font-size: 44px; margin-bottom: 20px; }
+    .value-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: white; margin-bottom: 12px; }
+    .value-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.8; }
+    .value-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .value-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 20px; }
+
+    /* TEAM */
+    .team-section {
+      padding: 100px 80px;
+      background: #fafafa;
+    }
+    .team-inner { max-width: 1200px; margin: 0 auto; }
+    .team-header { text-align: center; margin-bottom: 60px; }
+    .team-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300;
+      color: #18181b;
+      margin-bottom: 12px;
+    }
+    .team-header p { font-size: 16px; color: #6b7280; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .team-card {
+      background: white;
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      border: 1px solid #f0f0f0;
+      transition: all 0.3s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .team-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.15); }
+    .team-avatar {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, #f3e8ff, #fce7f3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      margin: 0 auto 20px;
+    }
+    .team-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #18181b; margin-bottom: 4px; }
+    .team-role { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7c3aed; margin-bottom: 14px; }
+    .team-bio { font-size: 14px; color: #6b7280; line-height: 1.7; }
+
+    /* TIMELINE */
+    .timeline-section {
+      padding: 100px 80px;
+      background: white;
+    }
+    .timeline-inner { max-width: 800px; margin: 0 auto; }
+    .timeline-header { text-align: center; margin-bottom: 64px; }
+    .timeline-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: #18181b; margin-bottom: 12px; }
+    .timeline { position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #e5e7eb, #7c3aed, #e5e7eb); transform: translateX(-50%); }
+    .tl-item { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 56px; align-items: center; }
+    .tl-item:nth-child(even) .tl-content { order: 2; text-align: left; }
+    .tl-item:nth-child(even) .tl-dot-wrap { order: 1; display: flex; justify-content: flex-end; }
+    .tl-item:nth-child(odd) .tl-content { text-align: right; }
+    .tl-dot-wrap { display: flex; justify-content: center; position: relative; }
+    .tl-dot { width: 52px; height: 52px; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 8px 24px rgba(124,58,237,0.35); border: 4px solid white; }
+    .tl-year { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 700; color: #7c3aed; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .tl-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #18181b; margin-bottom: 8px; }
+    .tl-desc { font-size: 14px; color: #6b7280; line-height: 1.7; }
+
+    /* CTA */
+    .about-cta {
+      padding: 100px 80px;
+      background: linear-gradient(135deg, #f5f3ff, #fce7f3);
+      text-align: center;
+    }
+    .about-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.5vw, 60px); font-weight: 300; color: #18181b; margin-bottom: 16px; line-height: 1.15; }
+    .about-cta h2 em { font-style: italic; color: #7c3aed; }
+    .about-cta p { font-size: 17px; color: #6b7280; max-width: 480px; margin: 0 auto 40px; line-height: 1.7; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(124,58,237,0.35);
+      transition: all 0.3s;
+    }
+    .btn-primary-lg:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(124,58,237,0.45); }
+    .btn-outline-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: white;
+      color: #7c3aed;
+      text-decoration: none;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      border: 2px solid rgba(124,58,237,0.2);
+      transition: all 0.3s;
+    }
+    .btn-outline-lg:hover { border-color: #7c3aed; background: #f5f3ff; transform: translateY(-3px); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: all 0.7s cubic-bezier(0.4,0,0.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    @media(max-width: 1000px) {
+      .about-hero { padding: 100px 24px 60px; }
+      .about-hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .story-section, .values-section, .team-section, .timeline-section, .about-cta { padding: 80px 24px; }
+      .story-grid { grid-template-columns: 1fr; gap: 48px; }
+      .values-grid, .team-grid { grid-template-columns: 1fr; }
+      .timeline::before { left: 24px; }
+      .tl-item { grid-template-columns: 48px 1fr; gap: 24px; }
+      .tl-item:nth-child(even) .tl-content { order: unset; text-align: left; }
+      .tl-item:nth-child(even) .tl-dot-wrap { order: unset; justify-content: flex-start; }
+      .tl-item:nth-child(odd) .tl-content { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="logo">
+    <div class="logo-icon"><i class="fa-solid fa-spa"></i></div>
+    <div class="logo-text"><span>Violet</span> Beauty</div>
+  </a>
+  <div class="nav-center">
+    <a href="index.html" class="nav-link">Home</a>
+    <div class="nav-item">
+      <a href="all-products.html" class="nav-link">Products ▾</a>
+      <div class="dropdown">
+        <a href="category-skincare.html"><span class="d-icon"><i class="fa-solid fa-pump-soap"></i></span> Skincare</a>
+        <a href="category-lipstick.html"><span class="d-icon"><i class="fa-solid fa-palette"></i></span> Lipstick</a>
+        <a href="category-haircare.html"><span class="d-icon"><i class="fa-solid fa-scissors"></i></span> Hair Care</a>
+        <a href="category-perfume.html"><span class="d-icon"><i class="fa-solid fa-spa"></i></span> Perfume</a>
+        <a href="category-others.html"><span class="d-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span> Others</a>
+      </div>
+    </div>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <button class="icon-btn search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <a href="favorites.html" class="icon-btn"><i class="fa-regular fa-heart"></i><span class="badge fav-badge">0</span></a>
+    <button class="icon-btn" id="cart-btn"><i class="fa-solid fa-cart-shopping"></i><span class="badge cart-badge" id="cart-count">0</span></button>
+    <button class="login-btn">Login</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="about-hero-grid">
+    <div class="about-hero-left">
+      <div class="tag reveal"><i class="fa-solid fa-spa"></i> Our Story</div>
+      <h1 class="reveal reveal-delay-1">Beauty born from<br><em>passion & science</em></h1>
+      <p class="reveal reveal-delay-2">We started with a simple belief: that beauty products should be honest, effective, and kind — to your skin and to the planet.</p>
+      <div class="hero-badges reveal reveal-delay-3">
+        <div class="hero-badge-item">🐰 100% Cruelty-Free</div>
+        <div class="hero-badge-item"><i class="fa-solid fa-seedling"></i> Vegan</div>
+        <div class="hero-badge-item">🛡️ Dermatologist Tested</div>
+      </div>
+    </div>
+    <div class="about-hero-right reveal reveal-delay-2">
+      <div class="stat-card">
+        <div class="stat-number">2023</div>
+        <div class="stat-label">Year Founded</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50k+</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">120+</div>
+        <div class="stat-label">Products</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Countries Served</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-grid">
+    <div class="story-visual reveal">
+      <div class="story-main-card"><i class="fa-solid fa-leaf"></i></div>
+      <div class="story-float-1">
+        <div class="num">98%</div>
+        <div class="lbl">Satisfaction Rate</div>
+      </div>
+      <div class="story-float-2">
+        <div class="icon"><i class="fa-solid fa-star"></i></div>
+        <div class="lbl">4.9 / 5 avg. rating</div>
+      </div>
+    </div>
+    <div class="story-text">
+      <div class="section-tag reveal">Our Mission</div>
+      <h2 class="reveal reveal-delay-1">We believe beauty is<br><em>for everyone</em></h2>
+      <p class="reveal reveal-delay-1">Founded in 2023, Violet Beauty was born from a simple idea: skincare and beauty products should work in harmony with nature and science.</p>
+      <p class="reveal reveal-delay-2">Every formula is dermatologically tested, cruelty-free, vegan, and crafted using premium natural ingredients sourced responsibly from 30+ countries worldwide.</p>
+      <p class="reveal reveal-delay-2">Our mission is to help every person feel confident in their own skin — naturally radiant, healthy, and glowing.</p>
+      <div class="story-pillars reveal reveal-delay-3">
+        <div class="pillar">
+          <div class="pillar-icon"><i class="fa-solid fa-flask"></i></div>
+          <div class="pillar-text">
+            <div class="pillar-title">Science-Backed</div>
+            <div class="pillar-desc">Clinically tested by leading dermatologists</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"><i class="fa-solid fa-seedling"></i></div>
+          <div class="pillar-text">
+            <div class="pillar-title">Natural Origins</div>
+            <div class="pillar-desc">Premium botanicals from global sources</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"><i class="fa-solid fa-recycle"></i></div>
+          <div class="pillar-text">
+            <div class="pillar-title">Sustainable</div>
+            <div class="pillar-desc">Eco-conscious packaging & processes</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"><i class="fa-solid fa-heart" style="color:#7c3aed;"></i></div>
+          <div class="pillar-text">
+            <div class="pillar-title">Inclusive</div>
+            <div class="pillar-desc">Formulated for every skin type & tone</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="values-inner">
+    <div class="values-header reveal">
+      <div class="section-tag" style="background:rgba(167,139,250,0.15);color:#c4b5fd;border-color:rgba(167,139,250,0.3);display:inline-flex;">What We Stand For</div>
+      <h2>Our Core Values</h2>
+      <p>Everything we do flows from three uncompromising commitments</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal reveal-delay-1">
+        <div class="value-icon">🛡️</div>
+        <div class="value-title">Dermatologically Tested</div>
+        <div class="value-desc">Every formula is clinically tested and approved by leading dermatologists. Suitable for all skin types — sensitive, oily, dry, combination, and mature skin. Zero irritants, zero compromise.</div>
+        <div class="value-tags">
+          <span class="value-tag">ISO 16128</span>
+          <span class="value-tag">EU Cosmetics</span>
+          <span class="value-tag">FDA Compliant</span>
+        </div>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <div class="value-icon"><i class="fa-solid fa-seedling"></i></div>
+        <div class="value-title">Natural Ingredients</div>
+        <div class="value-desc">Sourced from the finest natural botanicals across 30+ countries. Free from parabens, sulfates, synthetic fragrances, and microplastics. We publish our full ingredient lists — always.</div>
+        <div class="value-tags">
+          <span class="value-tag">Rose Extract</span>
+          <span class="value-tag">Hyaluronic Acid</span>
+          <span class="value-tag">Vitamin C</span>
+        </div>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <div class="value-icon">🐰</div>
+        <div class="value-title">100% Cruelty-Free</div>
+        <div class="value-desc">Certified cruelty-free and fully vegan. We never test on animals — not at any stage of production. Every Violet Beauty product carries the Leaping Bunny and PETA certified seal.</div>
+        <div class="value-tags">
+          <span class="value-tag">Leaping Bunny</span>
+          <span class="value-tag">PETA Certified</span>
+          <span class="value-tag">B-Corp Aligned</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="team-inner">
+    <div class="team-header reveal">
+      <div class="section-tag" style="display:inline-flex;">Meet the Team</div>
+      <h2>The people behind Violet</h2>
+      <p>Scientists, beauty lovers, and dreamers united by a shared mission</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar">👩‍🔬</div>
+        <div class="team-name">Dr. Amara Chen</div>
+        <div class="team-role">Founder & Chief Scientist</div>
+        <div class="team-bio">Cosmetic chemist with 15 years at leading labs. Amara left the corporate world to build a beauty brand that actually keeps its promises — clean, effective, and honest.</div>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar"><i class="fa-solid fa-spa"></i></div>
+        <div class="team-name">Sofia Bellini</div>
+        <div class="team-role">Creative Director</div>
+        <div class="team-bio">Former beauty editor at Vogue and Harper's Bazaar. Sofia brings the editorial eye that makes Violet Beauty's products not just work — but feel like luxury.</div>
+      </div>
+      <div class="team-card reveal reveal-delay-3">
+        <div class="team-avatar">🌱</div>
+        <div class="team-name">Marcus Osei</div>
+        <div class="team-role">Head of Sustainability</div>
+        <div class="team-bio">Environmental scientist dedicated to making sure every Violet product leaves the planet better than it found it. From sourcing to packaging — Marcus ensures we walk the talk.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="timeline-inner">
+    <div class="timeline-header reveal">
+      <div class="section-tag" style="display:inline-flex;justify-content:center;">Our Journey</div>
+      <h2>How we got here</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2021</div>
+          <div class="tl-title">The Idea Sparks</div>
+          <div class="tl-desc">Amara Chen walks away from a senior chemist role after realizing most "natural" brands aren't telling the full story. The seed for Violet Beauty is planted.</div>
+        </div>
+        <div class="tl-dot-wrap"><div class="tl-dot">💡</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot"><i class="fa-solid fa-flask"></i></div></div>
+        <div class="tl-content">
+          <div class="tl-year">2022</div>
+          <div class="tl-title">Two Years in the Lab</div>
+          <div class="tl-desc">Formulating, testing, reformulating. Working with dermatologists and ethical suppliers to get every formula exactly right before a single product ships.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2023</div>
+          <div class="tl-title">Violet Beauty Launches</div>
+          <div class="tl-desc">Our first 12 products hit the shelves. Within 6 months, we reach 10,000 customers — driven entirely by word of mouth and a commitment that products truly work.</div>
+        </div>
+        <div class="tl-dot-wrap"><div class="tl-dot"><i class="fa-solid fa-spa"></i></div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot"><i class="fa-solid fa-earth-americas"></i></div></div>
+        <div class="tl-content">
+          <div class="tl-year">2024</div>
+          <div class="tl-title">Going Global</div>
+          <div class="tl-desc">Expanded to 30+ countries. Launched Leaping Bunny certification. Our perfume and hair care lines debut, completing the full beauty ritual vision.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <div class="tl-year">2026</div>
+          <div class="tl-title">50,000+ Happy Customers</div>
+          <div class="tl-desc">And counting. We continue to grow by staying true to our founding promise: science, nature, and honesty in every single drop.</div>
+        </div>
+        <div class="tl-dot-wrap"><div class="tl-dot"><i class="fa-solid fa-heart" style="color:#7c3aed;"></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <div class="section-tag reveal" style="display:inline-flex;margin-bottom:20px;">Shop With Us</div>
+  <h2 class="reveal reveal-delay-1">Ready to <em>glow</em>?</h2>
+  <p class="reveal reveal-delay-2">Explore our full collection and discover the formula that's been waiting for your skin.</p>
+  <div class="cta-buttons reveal reveal-delay-3">
+    <a href="all-products.html" class="btn-primary-lg">Shop All Products →</a>
+    <a href="contact.html" class="btn-outline-lg">Get in Touch</a>
+  </div>
+</section>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header"><h3>Your Cart (<span id="sidebar-cart-count">0</span>)</h3><button class="close-cart" id="close-cart">✕</button></div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-total"><div class="total-row"><span>Total</span><span id="cart-total-price">$0.00</span></div><button class="checkout-btn">Proceed to Checkout →</button></div>
+</div>
+<div class="cart-overlay" id="cart-overlay"></div>
+
+<footer>
+  <div class="footer-grid">
+    <div><div class="footer-logo"><i class="fa-solid fa-spa"></i> <span>Violet</span> Beauty</div><p class="footer-desc">Premium beauty crafted with love, science, and nature.</p></div>
+    <div><div class="footer-heading">Products</div><ul class="footer-links"><li><a href="category-skincare.html">Skincare</a></li><li><a href="category-lipstick.html">Lipstick</a></li><li><a href="category-haircare.html">Hair Care</a></li><li><a href="category-perfume.html">Perfume</a></li></ul></div>
+    <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="blog.html">Blog</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="footer-heading">Support</div><ul class="footer-links"><li><a href="contact.html">FAQ</a></li><li><a href="favorites.html">Wishlist</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Violet Beauty. All rights reserved.</span><span>Made with <i class="fa-solid fa-heart" style="color:#a78bfa;"></i> for beauty lovers</span></div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+<script src="script.js"></script>
+</body>
+</html>
